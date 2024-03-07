@@ -1,13 +1,19 @@
 <script setup>
 import html2canvas from 'html2canvas';
+import { ref } from 'vue';
+
+const imageRef = ref('https://storage.googleapis.com/assets.dev.cuco.info/logos/firstbox/adium.png');
 async function printScreenAndDownload() {
+  const images = document.querySelectorAll('img');
+
+  images.forEach(async img => {
+    await fetch(img.getAttribute('src'), { cache: 'no-cache' });
+  });
   const canvas = await html2canvas(
     document.querySelector(`#printAqui`),
     {
       logging: true,
       letterRendering: 1,
-      useCORS: true,
-      allowTaint: true
     }
   )
 
@@ -28,8 +34,7 @@ async function printScreenAndDownload() {
     <button @click="printScreenAndDownload">Print</button>
     <div id="printAqui">
       <h2>Print me</h2>
-      <img src="https://storage.googleapis.com/assets.dev.cuco.info/logos/firstbox/adium.png" alt=""
-        style="width: 320px;">
+      <img :src="imageRef" alt="" style="width: 320px;">
     </div>
   </div>
 </template>
