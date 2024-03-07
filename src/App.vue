@@ -6,7 +6,8 @@ async function printScreenAndDownload() {
     {
       logging: true,
       letterRendering: 1,
-      useCORS: true
+      useCORS: true,
+      allowTaint: true
     }
   )
 
@@ -28,7 +29,7 @@ async function printScreenAndDownload() {
     <div id="printAqui">
       <h2>Print me</h2>
       <img src="https://storage.googleapis.com/assets.dev.cuco.info/logos/firstbox/adium.png" alt=""
-        style="width: 320px;" crossorigin="true">
+        style="width: 320px;">
     </div>
   </div>
 </template>
