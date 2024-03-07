@@ -15,6 +15,7 @@ async function printScreenAndDownload() {
       logging: true,
       letterRendering: 1,
       useCORS: true,
+      allowTaint: true,
     }
   )
 
